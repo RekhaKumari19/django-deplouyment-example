@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Welcome to Relative URL Templates</h1>
+    <!-- <a href="basic_app/other.html">THE OTHER PAGE</a> -->
+    <a href="{% url 'basic_app:other' %}">THE OTHER PAGE</a>
+    <!-- Here basic_app is from app_name = 'basic_app' in basic_app/urls.py
+    and other is from path('other/', views.other, name='other')
+    in basic_app/urls.py
+    There should not be space in the string 'basic_app:other'
+    defined in template tagging-->
+
+    <!--Below is way to add admin page to an anchor tag
+    In settings.py of project folder, we not ony have basic_app
+    but also django.contrib.admin app which is always imported
+    as an installed application.
+    But inside admin app there is its own urls.py file
+    there is an admin application with index named view    -->
+    <a href="{% url 'admin:index' %}">LINK TO ADMIN</a>
+    <!-- Inorder for this to work sometimes we have to make migrations  -->.
+
+    <a href="{% url 'index' %}">LINK TO INDEX</a>
+
+  </body>
+</html>
